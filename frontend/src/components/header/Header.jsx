@@ -29,16 +29,6 @@ const Header = () => {
         >
           Notes
         </NavLink>
-        <NavLink
-          className={
-            pathname === "/create"
-              ? "text-yellow-400 underline underline-offset-4"
-              : ""
-          }
-          to="/create"
-        >
-          Create
-        </NavLink>
       </nav>
     </div>
   );

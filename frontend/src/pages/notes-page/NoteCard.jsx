@@ -1,7 +1,4 @@
-import React from "react";
-import { deleteNoteApi } from "@services/apiServices";
-
-const NoteCard = ({ note }) => {
+const NoteCard = ({ note, deleteNote }) => {
   return (
     <div className="h-24 bg-zinc-900 rounded-lg px-2 py-1 flex justify-between items-start">
       <div>
@@ -11,10 +8,7 @@ const NoteCard = ({ note }) => {
 
       <button
         className="bg-red-600 mt-1 px-2 rounded-lg py-1 text-sm font-bold cursor-pointer"
-        onClick={async () => {
-          window.location.reload();
-          await deleteNoteApi(note._id);
-        }}
+        onClick={() => deleteNote(note._id)}
       >
         Drop
       </button>
