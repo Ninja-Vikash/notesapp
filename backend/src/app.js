@@ -1,5 +1,5 @@
-import express from "express";
 import cors from "cors";
+import express from "express";
 import { Notes } from "./model/notes.model.js";
 
 const app = express();
@@ -19,7 +19,6 @@ app.get("/api/notes", async (_, res) => {
     try {
         const notes = await Notes.find()
         res.json(notes)
-        console.log("Data fetched successfully!")
     } catch (error) {
         console.log("Error in fetching notes", error)
     }
@@ -43,3 +42,4 @@ app.delete("/api/delete/:id", async (req, _) => {
 })
 
 export { app };
+
