@@ -1,4 +1,4 @@
-## NotesApp - A MERK Stack application
+## NotesApp - A MERN Stack application
 
 Where you can store your notes and todos.
 
