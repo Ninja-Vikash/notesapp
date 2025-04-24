@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@layer utilities {
+    .btn-red {
+        @apply bg-red-600 mt-1 px-2 rounded-lg py-1 text-sm font-bold cursor-pointer
+    }
+
+    .btn-blue {
+        @apply bg-blue-700 mt-1 px-2 rounded-lg py-1 text-sm font-bold cursor-pointer
+    }
+}

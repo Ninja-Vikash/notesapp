@@ -1,6 +1,6 @@
 import cors from "cors";
 import express from "express";
-import { Notes } from "./model/notes.model.js";
+import notesRouter from "./routes/notes.route.js";
 
 const app = express();
 
@@ -12,34 +12,9 @@ app.use(express.json());
 // ROUTES 👇
 
 app.get("/api", (_, res) => {
-  res.json({ message: "API is working fine" });
+    res.json({ message: "NotesApp is LIVE 🔴" });
 });
 
-app.get("/api/notes", async (_, res) => {
-    try {
-        const notes = await Notes.find()
-        res.json(notes)
-    } catch (error) {
-        console.log("Error in fetching notes", error)
-    }
-})
-
-app.post("/api/create", async (req, _) => {
-  const { title, description } = req.body;
-
-  try {
-    const note = await Notes.create({ title, description });
-    console.log(note);
-  } catch (error) {
-    console.log("Error in creating note", error);
-  }
-});
-
-app.delete("/api/delete/:id", async (req, _) => {
-    const id = req.params.id
-
-    await Notes.findByIdAndDelete(id)
-})
+app.use("/api/notes", notesRouter);
 
 export { app };
-
