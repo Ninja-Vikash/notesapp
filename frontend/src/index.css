@@ -2,10 +2,22 @@
 
 @layer utilities {
     .btn-red {
-        @apply bg-red-600 mt-1 px-2 rounded-lg py-1 text-sm font-bold cursor-pointer
+        @apply bg-red-600 rounded-lg cursor-pointer;
     }
 
     .btn-blue {
-        @apply bg-blue-700 mt-1 px-2 rounded-lg py-1 text-sm font-bold cursor-pointer
+        @apply bg-blue-700 rounded-lg cursor-pointer;
+    }
+
+    .btn-green {
+       @apply bg-green-700 rounded-lg cursor-pointer; 
+    }
+
+    .btn-outlined {
+        @apply rounded-lg cursor-pointer border border-zinc-600
+    }
+
+    .input-styles {
+        @apply bg-zinc-900 px-2 py-2 border-0 outline-0 rounded-lg w-full;
     }
 }

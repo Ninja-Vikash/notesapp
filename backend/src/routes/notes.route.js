@@ -1,20 +1,23 @@
 import { Router } from "express";
-import { createNote } from "../controllers/createNote.js";
-import { deleteNote } from "../controllers/deleteNote.js";
-import { getNote } from "../controllers/getNote.js";
-import { getNotes } from "../controllers/getNotes.js";
-import { updateNote } from "../controllers/updateNote.js";
+import { createNote } from "../controllers/notes/create.controller.js";
+import { deleteNote } from "../controllers/notes/delete.controller.js";
+import { getNote } from "../controllers/notes/note.controller.js";
+import { getNotes } from "../controllers/notes/notes.controller.js";
+import { updateNote } from "../controllers/notes/update.controller.js";
+import { getUserNotes } from "../controllers/notes/user.notes.controller.js";
 
 const router = Router();
 
 router.get("/", getNotes);
 
-router.get("/:id", getNote)
+router.get("/:_id", getNote)
 
 router.post("/create", createNote);
 
-router.delete("/delete/:id", deleteNote);
+router.delete("/:_id/delete", deleteNote);
 
-router.patch("/update/:id", updateNote);
+router.patch("/:_id/update", updateNote);
+
+router.get("/user/:userId", getUserNotes)
 
 export default router;

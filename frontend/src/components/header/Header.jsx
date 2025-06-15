@@ -1,34 +1,20 @@
-import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import HeaderLink from "@components/header/HeaderLink";
+import { UserIdContext } from "@contexts/userId";
+import { useContext } from "react";
 
 const Header = () => {
-  const { pathname } = useLocation();
-
+  const [userId] = useContext(UserIdContext);
   return (
     <div className="w-[100%] absolute pt-12 px-28 flex justify-between">
       <h2 className="text-lg font-bold">NotesApp</h2>
 
       <nav className="flex gap-6">
-        <NavLink
-          className={
-            pathname === "/"
-              ? "text-yellow-400 underline underline-offset-4"
-              : ""
-          }
-          to="/"
-        >
-          Home
-        </NavLink>
-        <NavLink
-          to="/notes"
-          className={
-            pathname === "/notes"
-              ? "text-yellow-400 underline underline-offset-4"
-              : ""
-          }
-        >
-          Notes
-        </NavLink>
+        <HeaderLink url="/">Home</HeaderLink>
+        {!!userId ? (
+          <HeaderLink url="/notes">Notes</HeaderLink>
+        ) : (
+          <HeaderLink url="login">Login</HeaderLink>
+        )}
       </nav>
     </div>
   );

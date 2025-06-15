@@ -1,10 +1,10 @@
-import { Notes } from "../model/notes.model.js";
+import { Notes } from "../../model/notes.model.js";
 
 export const deleteNote = async (req, res) => {
-    const noteId = req.params.id;
+    const { _id } = req.params;
 
     try {
-        await Notes.findByIdAndDelete(noteId);
+        await Notes.findByIdAndDelete({ _id });
         res.json({
             status: 200,
             message: "note is deleted successfully!",

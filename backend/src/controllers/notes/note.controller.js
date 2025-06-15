@@ -1,10 +1,10 @@
-import { Notes } from "../model/notes.model.js";
+import { Notes } from "../../model/notes.model.js";
 
 export const getNote = async (req, res) => {
-    const noteId = req.params.id;
+    const { _id } = req.params;
 
     try {
-        const note = await Notes.findOne({ _id: noteId });
+        const note = await Notes.findOne({ _id });
         res.json({ status: 200, message: "note found in server", data: note });
     } catch (error) {
         console.log("Error while fetching note from server", error);

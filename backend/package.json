@@ -5,11 +5,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
+    "dev:loop": "concurrently -k -r \"npm run dev\" \"watch-delay\"",
+    "watch-delay": "node -e \"setInterval(()=>{}, 1000)\""
   },
   "author": "vikash",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^9.1.2",
     "nodemon": "^3.1.9",
     "prettier": "^3.5.1"
   },
